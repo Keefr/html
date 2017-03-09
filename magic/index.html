@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+                <title>Keith Autocomplete WebServer 5</title>
+                <link href="EasyAutocomplete/dist/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+        <!--    <link href="resources/flags.css"  rel="stylesheet" type="text/css" > -->
+                <script src="EasyAutocomplete/lib/jquery-1.11.2.min.js"></script>
+                <script src="EasyAutocomplete/dist/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
+        </head>
+	<body>
+
+		<h1>Keith Autocomplete WebServer 5</h1>
+
+		<input id="flags" />
+
+		<script>
+
+				var options = {
+					url: "EasyAutocomplete/demo/resources/countries.json",
+
+					getValue: "name",
+
+					list: {
+						match: {
+							enabled: true
+						},
+						maxNumberOfElements: 10
+					},
+
+					template: {
+						type: "custom",
+						method: function(value, item) {
+							return "<span class='flag flag-" + (item.code).toLowerCase() + "' ></span>" + value;
+						}
+					}
+				};
+
+				$("#flags").easyAutocomplete(options);
+
+		</script>
+
+	</body>
+
+</html>
